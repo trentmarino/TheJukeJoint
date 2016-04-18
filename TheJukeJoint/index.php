@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="mainstyle.css">
-    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
-
 </head>
 
 
 <body>
-
 <button id="play">Play</button>
 <button id="stop">Stop</button>
 <button id="half">Half</button>
@@ -20,13 +17,10 @@
 <button id="submit">submit</button>
 
 
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
 <div id="player"></div>
-<div id="tracks">
-<canvas id="list" width="300" height="700"></canvas>
-</div>
-<script src="discLoader.js"></script>
-
 <script>
+    // 2. This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
     var play = document.getElementById("play");
     var stop = document.getElementById("stop");
@@ -39,32 +33,38 @@
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
     var player;
-    function onPlayerReady(event) {
-        play.onclick = function () {
-            console.log("dfgdsgdgsd");
-            event.target.playVideo();
-        };
+
+
+
+    // 4. The API will call this function when the video player is ready.
+
+       function onPlayerReady(event) {
+            play.onclick = function(){
+                console.log("dfgdsgdgsd");
+                event.target.playVideo();
+            };
     }
 
-    stop.onclick = function () {
+    stop.onclick = function(){
         StopVideo();
-    };
-    half.onclick = function () {
-        player.setPlaybackRate(0.5);
+  };
+    half.onclick = function(){
+      player.setPlaybackRate(0.5);
     };
 
     function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-            done = true;
-        }
+        // if (event.data == YT.PlayerState.PLAYING && !done) {
+        //     done = true;
+        // }
     }
     function StopVideo() {
         player.pauseVideo();
     }
 
-    submit.onclick = function () {
+    submit.onclick = function(){
         YTUrl = url.value;
         console.log("url is " + YTUrl);
         YTUrl = splitter();
@@ -84,13 +84,14 @@
         }
     };
 
-    function splitter() {
+    function splitter(){
         var trackTitle = YTUrl.toString().slice(32);
         console.log(trackTitle);
         return trackTitle;
 
     }
 </script>
+<canvas id="list" width="300" height="500"></canvas>
 
 </body>
 </html>

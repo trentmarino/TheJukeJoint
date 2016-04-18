@@ -1,0 +1,21 @@
+/*#list{*/
+    /*background-color: antiquewhite;*/
+    /*z-index: -1;*/
+    /*position: absolute;*/
+
+
+/*}*/
+#tracks {
+    overflow-y: scroll;
+    width: 300px;
+    height: 500px;
+}
+
+#tracks #list {
+    background-color: gray;
+    display: block;
+}
+
+#tracko{
+    background-color: burlywood;
+}
