@@ -9,7 +9,7 @@
     var canvas = document.getElementById("list");
 
     var offset = new createjs.Point();
-    var xbase = 100;
+    var xbase = 50;
     var ybase = 120;
     var cont = new createjs.Container();
     function discs() {

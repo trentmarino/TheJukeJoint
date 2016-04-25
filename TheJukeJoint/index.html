@@ -1,96 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" type="text/css" href="mainStyle.css">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="mainstyle.css">
+    <script>
+        window.onload = function () {
+            var theCanvas = document.getElementById('bgCanvas');
+            var ctx = theCanvas.getContext("2d");
+        }
+    </script>
     <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
 
 </head>
-
-
 <body>
+    <div id="bgDiv">
 
-<button id="play">Play</button>
-<button id="stop">Stop</button>
-<button id="half">Half</button>
-<br>
-<label>URL</label>
-<input type="text" id="url">
-<button id="submit">submit</button>
+            <div id="leftBackgroundImage">
+                <img src="leftBG2.png" height="100%" width="100%">
 
 
-<div id="player"></div>
-<div id="tracks">
-<canvas id="list" width="300" height="700"></canvas>
-</div>
-<script src="discLoader.js"></script>
+            </div>
+            <div id="canvasDiv">
+                <!--<img src="recordPlayer.png" height="100%" width="100%">-->
+                <canvas id="bgCanvas"></canvas>
+                <script>
+                    var needleCanvas = new createjs.Stage("needle");
 
-<script>
-    var tag = document.createElement('script');
-    var play = document.getElementById("play");
-    var stop = document.getElementById("stop");
-    var half = document.getElementById("half");
-    var url = document.getElementById("url");
-    var submit = document.getElementById("submit");
-    var YTUrl;
+                        var canvas = document.getElementById('bgCanvas');
+                        var ctx = canvas.getContext('2d');
+                        var img = new Image();
+                    needleCanvas.onload = function (){
+                        var bitmap = new createjs.Bitmap("needle.png");
+                        needleCanvas.addChild(bitmap);
+                        needleCanvas.update();
+                    };
+                        var ang = 0; //angle
+                        var fps = 1000 / 25; //number of frames per sec
+                        img.onload = function () { //on image load do the following stuff
+                            canvas.width = this.width << 1; //double the canvas width
+                            canvas.height = this.height << 1; //double the canvas height
+                            var cache = this; //cache the local copy of image element for future reference
+                            setInterval(function () {
+                                ctx.save(); //saves the state of canvas
+                                //ctx.clearRect(0, 0, canvas.width, canvas.height); //clear the canvas
+                                ctx.translate(cache.width / 0.86, cache.height / 1.05); //let's translate
+                                ctx.rotate(Math.PI / 180 * (ang += 5)); //increment the angle and rotate the image
+                                ctx.drawImage(img, -cache.width / 2, -cache.height / 2, cache.width, cache.height); //draw the image ;)
+                                ctx.restore(); //restore the state of canvas
+                            }, fps);
+                        };
 
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                        img.src = 'record.png'; //img
 
 
-    var player;
-    function onPlayerReady(event) {
-        play.onclick = function () {
-            console.log("dfgdsgdgsd");
-            event.target.playVideo();
-        };
-    }
 
-    stop.onclick = function () {
-        StopVideo();
-    };
-    half.onclick = function () {
-        player.setPlaybackRate(0.5);
-    };
+                    var canvas = document.getElementById('bgCanvas');
+                    var context = canvas.getContext('2d');
+                    var imageObj = new Image();
+                    var cv = context.width;
+                    var ch = context.height;
+                    imageObj.onload = function() {
+                        context.clearRect(0, 0, cv, ch);
+                        context.drawImage(imageObj, canvas.width / 3.3, canvas.height / 4.7, 933*0.75, 660*0.8);
+                    };
+                    imageObj.src = 'recordPlayer.png';
+                    //imageObj.height = '80%';
 
-    function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-            done = true;
-        }
-    }
-    function StopVideo() {
-        player.pauseVideo();
-    }
+                </script>
+            </div>
 
-    submit.onclick = function () {
-        YTUrl = url.value;
-        console.log("url is " + YTUrl);
-        YTUrl = splitter();
-        console.log("url is " + YTUrl);
 
-        onYouTubeIframeAPIReady();
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '200',
-                width: '200',
-                videoId: YTUrl,
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-    };
+            <div id="rightBackgroundImage">
+                <img src="leftBG2.png" height="100%" width="100%">
+            </div>
 
-    function splitter() {
-        var trackTitle = YTUrl.toString().slice(32);
-        console.log(trackTitle);
-        return trackTitle;
-
-    }
-</script>
-
+    </div>
 </body>
 </html>

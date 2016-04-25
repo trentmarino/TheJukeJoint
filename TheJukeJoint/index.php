@@ -1,97 +1,83 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
+<link rel="stylesheet" type="text/css" href="mainStyle.css">
+
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="mainstyle.css">
+    <script></script>
+    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 </head>
-
-
+<?php
+include "db_connect.php";
+?>
 <body>
-<button id="play">Play</button>
-<button id="stop">Stop</button>
-<button id="half">Half</button>
-<br>
-<label>URL</label>
-<input type="text" id="url">
-<button id="submit">submit</button>
 
-
-<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-<div id="player"></div>
+<form id="insert_songs" action="insert_song.php" method="post">
+    <label>Song name</label>
+    <input type="text" id="song_name" name="song_name">
+    <label>artist</label>
+    <input type="text" id="artist" name="artist">
+    <label>Image</label>
+    <input type="file" id="art" name="art">
+    <label>URL</label>
+    <input type="text" id="url" name="url">
+    <button type="submit" id="submit">submit</button>
+</form>
 <script>
-    // 2. This code loads the IFrame Player API code asynchronously.
-    var tag = document.createElement('script');
-    var play = document.getElementById("play");
-    var stop = document.getElementById("stop");
-    var half = document.getElementById("half");
-    var url = document.getElementById("url");
-    var submit = document.getElementById("submit");
-    var YTUrl;
 
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    // 3. This function creates an <iframe> (and YouTube player)
-    //    after the API code downloads.
-    var player;
-
-
-
-    // 4. The API will call this function when the video player is ready.
-
-       function onPlayerReady(event) {
-            play.onclick = function(){
-                console.log("dfgdsgdgsd");
-                event.target.playVideo();
-            };
-    }
-
-    stop.onclick = function(){
-        StopVideo();
-  };
-    half.onclick = function(){
-      player.setPlaybackRate(0.5);
-    };
-
-    function onPlayerStateChange(event) {
-        // if (event.data == YT.PlayerState.PLAYING && !done) {
-        //     done = true;
-        // }
-    }
-    function StopVideo() {
-        player.pauseVideo();
-    }
-
-    submit.onclick = function(){
-        YTUrl = url.value;
-        console.log("url is " + YTUrl);
-        YTUrl = splitter();
-        console.log("url is " + YTUrl);
-
-        onYouTubeIframeAPIReady();
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '200',
-                width: '200',
-                videoId: YTUrl,
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-    };
-
-    function splitter(){
-        var trackTitle = YTUrl.toString().slice(32);
-        console.log(trackTitle);
-        return trackTitle;
-
-    }
 </script>
-<canvas id="list" width="300" height="500"></canvas>
+
+
+<div id="bgDiv">
+    <div id="leftBackgroundImage">
+        <img src="leftBG2.png" height="100%" width="100%">
+    </div>
+    <canvas id="needle"></canvas>
+    <canvas id="turntable" height=" 500" width=" 600"></canvas>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <div id="trackList">
+        <div id="infoPanel">
+
+        </div>
+    </div>
+    <div class="yt" id="playerFrame">
+
+    </div>
+    <div id="player" class="playing"></div>
+    <script src="trackLoader.js"></script>
+    <script>
+        $('#insert_songs').submit(function () {
+            var trackTitle = url.value.split("=");
+            console.log(trackTitle[1]);
+            url.value = trackTitle[1];
+            return true;
+        });
+    </script>
+
+    <script src="controller.js"></script>
+    <menu id="controls">
+        <button id="play">Play</button>
+        <button id="stop">Stop</button>
+        <button id="half">Half</button>
+        <button id="eject">eject</button>
+
+    </menu>
+    <script src="youtubePlayer.js"></script>
+
+
+</div>
+
+
+
 
 </body>
 </html>
