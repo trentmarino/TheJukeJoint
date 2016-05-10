@@ -20,7 +20,12 @@
         <input type="file" id="uploadedFile">
     </div>
 </div>
-
+ <div >
+        <button id = "pause">Pause</button>
+        <button id = "resume">Resume</button>
+        <input id = "volume_range" type="range" name="volume"  min="0" max="2" step="0.1" value="1" >
+        <input id = "volume_speed" type="range" name="volume"  min="0.5" max="2" step="0.1" value="1" >
+         </div>
 
 <script>
 
@@ -96,7 +101,6 @@
         that.update = function (n) {
 
             tickCount += n;
-            console.log(n);
 
             if (tickCount > ticksPerFrame) {
 
@@ -144,6 +148,7 @@
         this.animationId = null;
         this.status = 0; //flag for sound is playing 1 or stopped 0
         this.forceStop = false;
+        this.isStop = false;
         this.allCapsReachBottom = false;
         this.averageVolume = null; // the average volume value of music
         this.sum = 0;
@@ -176,6 +181,8 @@
         _addEventListner: function () {
             var that = this,
                 audioInput = document.getElementById('uploadedFile'),
+                pauseButton = document.getElementById('pause'),
+                resumeButton = document.getElementById('resume'),
                 dropContainer = document.getElementsByTagName("canvas")[0];
             //listen the file upload
             audioInput.onchange = function () {
@@ -197,9 +204,10 @@
                     that._updateInfo('Uploading', true);
                     //once the file is ready,start the visualizer
                     that._start();
-                }
-                ;
+                };
             };
+           pauseButton.onclick = function(){that._audioPause();};   
+           resumeButton.onclick = function(){that._audioResume(that.analyser);};
 
         },
         _start: function () {
@@ -260,17 +268,48 @@
             if (this.source !== null) {
                 this.source.stop(0);
             }
-            audioBufferSouceNode.start(0);
-            this.status = 1;
-            this.source = audioBufferSouceNode;
-            audioBufferSouceNode.onended = function () {
-                that._audioEnd(that);
-            };
-            this._updateInfo('Playing ' + this.fileName, false);
-            this.info = 'Playing ' + this.fileName;
-            document.getElementById('fileWrapper').style.opacity = 0.2;
-            this._drawSpectrum(analyser);
+              //volumne connect
+        
+        var gainNode = audioContext.createGain();
+       
+        audioBufferSouceNode.start(0);
+        audioBufferSouceNode.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+       
+        document.getElementById('volume_range').addEventListener('change', function() {
+
+                gainNode.gain.value = this.value;
+        });
+        
+        document.getElementById('volume_speed').addEventListener('change', function() {
+
+                audioBufferSouceNode.playbackRate.value = this.value;
+        });
+
+        //start play
+
+        this.status = 1;
+        this.source = audioBufferSouceNode;
+        this.analyser = analyser;
+        audioBufferSouceNode.onended = function() {
+            that._audioEnd(that);
+        };
+        this._updateInfo('Playing ' + this.fileName, false);
+        this.info = 'Playing ' + this.fileName;
+        document.getElementById('fileWrapper').style.opacity = 0.2;
+        this._drawSpectrum(analyser);
+ 
         },
+        
+        _audioPause: function(){
+           this.source.disconnect();
+           this.isStop = true;
+            },
+    
+        _audioResume: function(analyser){
+         this.source.connect(analyser);
+         this.isStop = false;
+            },
         _drawSpectrum: function (analyser) {
             var that = this,
                 canvas = document.getElementById('canvas'),
@@ -338,6 +377,7 @@
                 that.sum = 0;
 
                 that.coin.update(that.averageVolume);
+                if(that.isStop == false)
                 that.coin.render();
 
                 that.animationId = requestAnimationFrame(drawMeter);

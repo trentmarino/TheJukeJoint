@@ -73,10 +73,15 @@ include "equalizer.php";
     <script src="controller.js"></script>
     <menu id="controls">
         <button id="play">Play</button>
+        <button id ="pause">Pause</button>
         <button id="stop">Stop</button>
         <button id="half">Half</button>
-        <button id="eject">eject</button>
-
+        <button id="eject">Eject</button>      
+        <button id = "resume">Resume</button>
+        <div>
+        <input id = "volume_range" type="range" name="volume"  min="0" max="2" step="0.1" value="1" >
+        <input id = "volume_speed" type="range" name="volume"  min="0.5" max="2" step="0.1" value="1" >
+        </div>
     </menu>
     <script src="youtubePlayer.js"></script>
 
