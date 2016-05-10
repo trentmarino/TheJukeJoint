@@ -31,9 +31,9 @@ include "db_connect.php";
     <button type="submit" id="submit">submit</button>
 </form>
 <?php
-include "equilizer.php";
+include "equalizer.php";
 ?>
-<script>
+<script>a
 
 </script>
 
