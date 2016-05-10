@@ -30,6 +30,9 @@ include "db_connect.php";
     <input type="text" id="url" name="url">
     <button type="submit" id="submit">submit</button>
 </form>
+<?php
+include "equilizer.php";
+?>
 <script>
 
 </script>
@@ -39,6 +42,10 @@ include "db_connect.php";
     <div id="leftBackgroundImage">
         <img src="leftBG2.png" height="100%" width="100%">
     </div>
+    <div id="visualizer_wrapper">
+        <canvas id='canvas' width="800" height="350" ></canvas>
+    </div>
+ 
     <canvas id="needle"></canvas>
     <canvas id="turntable" height=" 500" width=" 600"></canvas>
 

@@ -12,6 +12,8 @@
     tag.src = "https://www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    var globalURL;
+    var playlist = [];
 
     var speed;
     var time;
@@ -24,6 +26,8 @@
     function onPlayerReady(event) {
         time = event.target.getDuration();
         currentTime = event.target;
+        console.log(player.getVideoUrl());
+
     }
 
     play.onclick = function () {
@@ -61,8 +65,10 @@
     }
 
     function playnow(url,playing) {
-
         if(playing == true) {
+            HandleBrowseClick(url);
+
+            playlist.push(url);
             var ytPlayer = document.createElement("div");
             ytPlayer.id = "ytPlayer";
             ytPlayer.setAttribute('class', "yt");
@@ -81,6 +87,7 @@
 
                     }
                 });
+
             }
 
 
