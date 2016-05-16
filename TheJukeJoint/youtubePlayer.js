@@ -32,19 +32,20 @@
 
     play.onclick = function () {
         player.playVideo();
-        speed = 5;
+        speed =  $('#volume_speed').val();
         player.setPlaybackRate(1);
 
 
     };
-    stop.onclick = function () {
-        StopVideo();
-        speed = 0;
-    };
-    half.onclick = function () {
-        player.setPlaybackRate(0.5);
-        speed = 2.5;
-    };
+    
+
+    $('#volume_speed').on("change", function() {
+        console.log("jhghgj" + $(this).val());
+        player.setPlaybackRate($(this).val());
+        speed = $(this).val();
+    });
+ 
+  
 
     function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !done) {
@@ -66,7 +67,6 @@
 
     function playnow(url,playing) {
         if(playing == true) {
-            HandleBrowseClick(url);
 
             playlist.push(url);
             var ytPlayer = document.createElement("div");

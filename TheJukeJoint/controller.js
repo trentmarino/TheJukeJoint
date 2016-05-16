@@ -40,9 +40,9 @@
             //console.log(" rotation " + bitmap.rotation);
             //console.log(" speed " + speed);
 
-            if (speed === 5) {
+            if (speed === $('#volume_speed').val()) {
                 if (bitmap.rotation <= 16 || bitmap.rotation > 354) {
-                    bitmap.rotation += (time/1000)/300;
+                    bitmap.rotation += (time/1000)/300 * $('#volume_speed').val();
                 }else{
                     bitmap.rotation = 355;
 
@@ -73,14 +73,13 @@
         img.onload = function () {
             recordCanvas.width = this.width << 1;
             recordCanvas.height = this.height << 1;
-            0
             var cache = this;
             var spin = setInterval(function () {
                 ctxRecord.save();
 
-                if (speed === 5) {
+                if (speed ===  $('#volume_speed').val()) {
                     ctxRecord.translate(cache.width / 1.225, cache.height / 0.9); //let's translate
-                    ctxRecord.rotate(Math.PI / 180 * (ang += 4)); //increment the angle and rotate the image
+                    ctxRecord.rotate(Math.PI / 180 * (ang += 4) * ($('#volume_speed').val())); //increment the angle and rotate the image
                     ctxRecord.drawImage(img, -cache.width / 1.535, -cache.height / 1.535, cache.width * 1.3, cache.height * 1.3); //draw the image ;)
                     console.log(time);
                     console.log(currentTime.getCurrentTime());
@@ -94,12 +93,7 @@
                     ctxRecord.rotate(Math.PI / 180 * (ang += 0)); //increment the angle and rotate the image
                     ctxRecord.drawImage(img, -cache.width / 1.535, -cache.height / 1.535, cache.width * 1.3, cache.height * 1.3); //draw the image ;)
                 }
-                else if (speed === 2.5) {
-                    ctxRecord.translate(cache.width / 1.225, cache.height / 0.9); //let's translate
-                    ctxRecord.rotate(Math.PI / 180 * (ang += 2.5)); //increment the angle and rotate the image
-                    ctxRecord.drawImage(img, -cache.width / 1.535, -cache.height / 1.535, cache.width * 1.3, cache.height * 1.3); //draw the image ;)
 
-                }
                 else if (speed === "load") {
                     ctxRecord.translate(cache.width / 1.225, cache.height / 0.9); //let's translate
                     ctxRecord.drawImage(img, -cache.width / 1.535, -cache.height / 1.535, cache.width * 1.3, cache.height * 1.3); //draw the image ;)
