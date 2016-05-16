@@ -21,10 +21,7 @@
     </div>
 </div>
  <div >
-        <button id = "pause">Pause</button>
-        <button id = "resume">Resume</button>
-        <input id = "volume_range" type="range" name="volume"  min="0" max="2" step="0.1" value="1" >
-        <input id = "volume_speed" type="range" name="volume"  min="0.5" max="2" step="0.1" value="1" >
+      
          </div>
 
 <script>
