@@ -34,14 +34,14 @@ include "db_connect.php";
 <?php
 include "equalizer.php";
 ?>
-<script>a
+<script>
 
 </script>
 
 <div class="row container">
 
     <div id="visualizer_wrapper">
-        <canvas id='canvas' width="800" height="350"></canvas>
+        <canvas id='canvas' ></canvas>
     </div>
     <div id="trackList" class="col trackList">
         <div id="infoPanel">
@@ -69,7 +69,7 @@ include "equalizer.php";
         <div class="yt" id="playerFrame">
         </div>
     </div>
-    <div class="col controls">
+    <div class="col controls"  >
         <button id="play">Play</button>
         <button id="pause">Pause</button>
         <button id="eject">Eject</button>

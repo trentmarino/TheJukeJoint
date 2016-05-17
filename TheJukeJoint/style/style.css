@@ -4,13 +4,23 @@
     /*background-color: white;*/
     /*color: darkblue;*/
 /*}*/
+
+
+#insert_songs{
+    position: absolute;
+    left: 10%;
+	top:17%;
+	transition:all 0.5s ease;
+}
 #fileWrapper{
+    position: absolute;
+    left: 12%;
+	top:105%;
 	transition:all 0.5s ease;
 }
 #fileWrapper:hover{
 	opacity: 1!important;
 }
-
 #visualizer_wrapper{
 	text-align: center;
 }
@@ -19,24 +29,34 @@ footer{
 	bottom: 2px;
 	color:#aaa;
 }
-#visualizer_wrapper{
-	position: absolute;
-	left: 37%;
-	top:2%;
-	width: 400px;
-	height: 150px;
-}
+
 #canvas{
-	position: absolute;
-	top:-200px;
-	left: 0;
+    position: absolute;
+	left: 59%;
+	top:83%;
+	width: 400px;
+	height: 130px;
+    z-index: 1000;
+}
+
+#canvas:hover{
+	opacity: 1!important;
 }
 #animation{
 	position: absolute;
-	right:0;
+	right:-100;
 	background-color: aqua;
+    z-index: 1000;
 }
 #c{
 	position: absolute;
 	right: -100px;
 }
+
+
+.col_controls
+    {
+        background-color:transparent;
+        opacity: 0.8;
+        z-index: 0;
+    }

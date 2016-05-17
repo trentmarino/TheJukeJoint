@@ -8,8 +8,8 @@
 
 <body>
 
-<div id="wrapper" position="absolute" right="1000" bottom=10px>
-    <div id="fileWrapper" class="file_wrapper">
+<div id="wrapper">
+    <div id="fileWrapper" class="file_wrapper" >
         <div id="info">
         </div>
         <label for="Input link">Input the Youtube link:</label>
@@ -125,8 +125,8 @@
                 0,
                 that.width / numberOfFrames,
                 that.height,
-                500,
                 250,
+                -5,
                 that.width / numberOfFrames,
                 that.height);
         };
@@ -252,8 +252,8 @@
         },
         _visualize: function (audioContext, buffer) {
             var audioBufferSouceNode = audioContext.createBufferSource(),
-                analyser = audioContext.createAnalyser(),
-                that = this;
+            analyser = audioContext.createAnalyser(),
+            that = this;
             //connect the source to the analyser
             audioBufferSouceNode.connect(analyser);
             //connect the analyser to the destination(the speaker), or we won't hear the sound
@@ -282,13 +282,11 @@
         gainNode.connect(audioContext.destination);
        
         document.getElementById('volume_range').addEventListener('change', function() {
-
                 gainNode.gain.value = this.value;
         });
         
-        document.getElementById('#volume_speed').addEventListener('change', function() {
-                audioBufferSouceNode.playbackRate.value = this.value;
-                
+        document.getElementById('volume_speed').addEventListener('change', function() {
+                audioBufferSouceNode.playbackRate.value = this.value;          
         });
 
         //start play
@@ -318,21 +316,20 @@
         _drawSpectrum: function (analyser) {
             var that = this,
                 canvas = document.getElementById('canvas'),
-                cwidth = canvas.width / 2,
-                cheight = canvas.height - 2,
+                cwidth = canvas.width  ,
+                cheight = canvas.height  * 1.3 ,
                 meterWidth = 10, //width of the meters in the spectrum
                 gap = 2, //gap between meters
                 capHeight = 2,
                 capStyle = '#0f0',
                 meterNum = 360 / (10 + 2), //count of the meters
                 capYPositionArray = []; ////store the vertical position of hte caps for the preivous frame
-            ctx = canvas.getContext('2d'),
-                gradient = ctx.createLinearGradient(0, 0, 0, 300);
-            gradient.addColorStop(1, '#0f0');
-            gradient.addColorStop(0.5, '#ff0');
-            gradient.addColorStop(0, '#f00');
-            gradient.addColorStop(0, '#f00');
-
+                ctx = canvas.getContext('2d'),
+                gradient = ctx.createLinearGradient(0, 0, 0, 100);
+                gradient.addColorStop(1, '#0f0');
+                gradient.addColorStop(0.5, '#ff0');
+                gradient.addColorStop(0, '#f00');
+                gradient.addColorStop(0, '#f00');
 
             var drawMeter = function () {
                 var array = new Uint8Array(analyser.frequencyBinCount);
@@ -369,14 +366,14 @@
                     ctx.fillStyle = capStyle;
                     //draw the cap, with transition effect
                     if (value < capYPositionArray[i]) {
-                        ctx.fillRect(i * 12, cheight - (--capYPositionArray[i]), meterWidth, capHeight);
+                        ctx.fillRect(i * 12, cheight - (--capYPositionArray[i]), meterWidth, capHeight );
                     } else {
                         ctx.fillRect(i * 12, cheight - value, meterWidth, capHeight);
                         capYPositionArray[i] = value;
                     }
                     ;
                     ctx.fillStyle = gradient; //set the filllStyle to gradient for a better look
-                    ctx.fillRect(i * 12 /*meterWidth+gap*/, cheight - value + capHeight, meterWidth, cheight); //the meter
+                    ctx.fillRect(i * 12 /*meterWidth+gap*/, cheight - value + capHeight, meterWidth, cheight ); //the meter
                 }
                 that.averageVolume = that.sum / (array.length) * 2;
                 that.sum = 0;
