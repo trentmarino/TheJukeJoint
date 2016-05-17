@@ -11,18 +11,14 @@
 <div id="wrapper">
     <div id="fileWrapper" class="file_wrapper" >
         <div id="info">
-        </div>
-        <label for="Input link">Input the Youtube link:</label>
-        <input type="text" id="youtube_link">
-        <input type="button" value="Download the youtube mp3 and choose to play" id="fakeBrowse"
-               onclick="HandleBrowseClick();"/>
-        <label for="uploadedFile">Input the Youtube link:</label>
+        </div>  
+        <input type="text" id="youtube_link"  size="35"    placeholder="Input the Youtube link" onmouseover="this.style.borderColor='black';this.style.backgroundColor='blue'"  
+style="width: 106; height: 21"  onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'" style="border-width:1px;border-color=black">
+        <input type="button" value="Download the youtube mp3" class="styled-button-6"  id="fakeBrowse" onclick="HandleBrowseClick();"/>
         <input type="file" id="uploadedFile">
     </div>
+
 </div>
- <div >
-      
-         </div>
 
 <script>
 
@@ -125,7 +121,7 @@
                 0,
                 that.width / numberOfFrames,
                 that.height,
-                250,
+                130,
                 -5,
                 that.width / numberOfFrames,
                 that.height);
@@ -321,14 +317,14 @@
                 meterWidth = 10, //width of the meters in the spectrum
                 gap = 2, //gap between meters
                 capHeight = 2,
-                capStyle = '#0f0',
+                capStyle = '#0338fd',
                 meterNum = 360 / (10 + 2), //count of the meters
                 capYPositionArray = []; ////store the vertical position of hte caps for the preivous frame
                 ctx = canvas.getContext('2d'),
                 gradient = ctx.createLinearGradient(0, 0, 0, 100);
-                gradient.addColorStop(1, '#0f0');
-                gradient.addColorStop(0.5, '#ff0');
-                gradient.addColorStop(0, '#f00');
+                gradient.addColorStop(1, '#0d0e0d');
+                gradient.addColorStop(0.5, '#0338fd');
+                gradient.addColorStop(0, '#000');
                 gradient.addColorStop(0, '#f00');
 
             var drawMeter = function () {

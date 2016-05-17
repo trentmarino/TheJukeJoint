@@ -5,17 +5,63 @@
     /*color: darkblue;*/
 /*}*/
 
+#insert_songs{
+    position: absolute;
+    left: 27%;
+	top:15%;
+	transition:all 0.5s ease;
+}
+#play{
+    position: absolute;
+    left: 2%;
+	top:2%;
+	transition:all 0.5s ease;
+}
+
+#pause{
+    position: absolute;
+    left: 25%;
+	top:2%;
+	transition:all 0.5s ease;
+}
+
+#resume{
+    position: absolute;
+    left: 50%;
+	top:2%;
+	transition:all 0.5s ease;
+}
+
+#eject{
+    position: absolute;
+    left: 75%;
+	top:2%;
+	transition:all 0.5s ease;
+}
+#volum
 
 #insert_songs{
     position: absolute;
-    left: 10%;
-	top:17%;
+    left: 27%;
+	top:15%;
 	transition:all 0.5s ease;
 }
-#fileWrapper{
+#volume_speed{
+    position: absolute;
+    left: 60%;
+	top:20%;
+}
+
+#volume_range{
     position: absolute;
     left: 12%;
-	top:105%;
+	top:23%;
+}
+
+#fileWrapper{
+    position: absolute;
+    left: 15%;
+	top:97%;
 	transition:all 0.5s ease;
 }
 #fileWrapper:hover{
@@ -32,7 +78,7 @@ footer{
 
 #canvas{
     position: absolute;
-	left: 59%;
+	left: 55%;
 	top:83%;
 	width: 400px;
 	height: 130px;
@@ -60,3 +106,5 @@ footer{
         opacity: 0.8;
         z-index: 0;
     }
+
+

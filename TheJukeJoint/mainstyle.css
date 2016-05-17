@@ -116,7 +116,7 @@
     z-index: 10;
     text-align: center;
     height: 100%;
-    background-color: antiquewhite;
+    background-color: #4f4f4f;
 }
 #player{
     width: 45%;
@@ -129,7 +129,6 @@
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
 
-    overflow-y: scroll;
 }
 #controls{
     bottom: 0;
@@ -145,22 +144,23 @@
 }
 .col.controls{
     background-color: white;
-    width: 40%;
+    width: 49%;
     height: 200px;
     margin-bottom: 1.5%;
     margin-right: 1%;
-    position: absolute;
+    position: absolute; 
     bottom: -1%;
     right: 0;
     font-size: 1.5em;
 
 }
 .recordCanvas{
-    height: 80%;
+    height: 800 px;
     background: url("recordPlayer.png") no-repeat;
 }
 .col.trackList{
     width: 25%;
+    left: -1%;
 
 }
 .col.player{
@@ -171,10 +171,9 @@
     height: 810px;
     margin: 10%;
     position: relative;
-    background-color: #aaaaaa;
+    background-color: #0d0e0d;
 }
-.recordCanvas.trackList{
-}
+
 .col.ytPlayer
 {
     width: 20%;

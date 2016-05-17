@@ -71,8 +71,7 @@
         var ang = 0;
         var fps = 1000 / 60;
         img.onload = function () {
-            recordCanvas.width = this.width << 1;
-            recordCanvas.height = this.height << 1;
+           
             var cache = this;
             var spin = setInterval(function () {
                 ctxRecord.save();
@@ -116,13 +115,6 @@
     }
 
 
-    // function drawPlayer() {
-    //
-    //     imageObj.onload = function () {
-    //         ctxTurntable.drawImage(imageObj, turntableCanvas.width / 15, turntableCanvas.height / 4.3, 900 / 1.75, 660 / 2);
-    //     };
-    //     imageObj.src = 'recordPlayer.png';
-    // }
     spiningRecord();
 
     drawPlayer();
