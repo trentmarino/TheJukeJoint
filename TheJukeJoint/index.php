@@ -106,7 +106,10 @@ include "db_connect.php";
             <canvas id='canvas'></canvas>
         </div>
     </div>
-    <div class="col animation">
+    
+</div>
+<div class="row choosesong">
+    <div class="col youtubeForm">
         <input type="text" id="youtube_link" size="35" placeholder="Input the Youtube link"
                onmouseover="this.style.borderColor='black';this.style.backgroundColor='blue'"
                style="width: 106; height: 21"

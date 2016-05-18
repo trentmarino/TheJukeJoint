@@ -159,7 +159,7 @@
 
     position: absolute;
     border-width: 2px;
-    border: cadetblue;
+    border: white;
     border-style: solid;
     visibility: hidden;
 }
@@ -196,9 +196,22 @@
     height: 804px;
     margin: 10%;
     position: relative;
-    border-width: 2px;
-    border: white;
-    border-style: solid;
+
+
+    border-right-width: 2px;
+    border-left-width: 2px;
+    border-top-width: 2px;
+
+    border-right-style: solid;
+    border-left-style: solid;
+    border-top-style: solid;
+
+    border-right-color: white ;
+    border-left-color: white ;
+    border-top-color: white ;
+
+
+
     padding-bottom: 6.5%;
     background-color:rgba(255,255,255,0.5);
 
@@ -246,4 +259,31 @@ body{
     width: 100%;
     color: white;
 
-}
+}.col.youtubeForm{
+     padding-bottom:10px;
+     width: 100%;
+     color: white;
+    height: 50px;
+ }
+ .row.choosesong{
+     width: 79.1%;
+     text-align: center;
+     background-color:rgba(255,255,255,0.5);
+     margin: 10%;
+     margin-top: -10%;
+     padding-right: -1%;
+
+     border-right-width: 2px;
+     border-left-width: 2px;
+     border-bottom-width: 2px;
+
+     border-right-style: solid;
+     border-left-style: solid;
+     border-bottom-style: solid;
+
+     border-right-color: white ;
+     border-left-color: white ;
+     border-bottom-color: white ;
+
+
+ }
