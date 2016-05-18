@@ -32,9 +32,11 @@ include "db_connect.php";
 ?>
 <body>
 
-< class="row form">
-        <form class="insertSongs" id="insert_songs" action="insert_song.php" method="post">
-            <ul class="insertSongsFormList">
+
+<div class="row container">
+    <div class="col insertSongs">
+        <form id="insert_songs" action="insert_song.php" method="post">
+            <ul>
                 <span>Add a new song: </span>
                 <input type="text" id="song_name" name="song_name" maxlength="100" placeholder="Song Name"
                        onmouseover="this.style.borderColor='black';this.style.backgroundColor='blue'"
@@ -55,16 +57,11 @@ include "db_connect.php";
 
             </ul>
         </form>
-
-</div>
-<div class="row container">
-
-
+    </div>
     <div id="trackList" class="col trackList">
         <div id="infoPanel">
         </div>
     </div>
-
     <div class="col player">
         <canvas id="needle"></canvas>
         <canvas id="turntable" height=" 500" width=" 600"></canvas>
@@ -101,7 +98,7 @@ include "db_connect.php";
                 <option>2</option>
             </datalist>
         </div>
-        <div id="fileWrapper" class="file_wrapper" >
+        <div id="fileWrapper" class="file_wrapper">
             <div style="margin-top: 11%" id="info">
             </div>
         </div>
@@ -110,20 +107,19 @@ include "db_connect.php";
         </div>
     </div>
     <div class="col animation">
-        <input type="text" id="youtube_link"  size="35"    placeholder="Input the Youtube link" onmouseover="this.style.borderColor='black';this.style.backgroundColor='blue'"
-               style="width: 106; height: 21"  onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'" style="border-width:1px;border-color=black">
-        <input type="button" value="Download the youtube mp3" class="styled-button-6"  id="fakeBrowse" onclick="HandleBrowseClick();"/>
+        <input type="text" id="youtube_link" size="35" placeholder="Input the Youtube link"
+               onmouseover="this.style.borderColor='black';this.style.backgroundColor='blue'"
+               style="width: 106; height: 21"
+               onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'"
+               style="border-width:1px;border-color=black">
+        <input type="button" value="Download the youtube mp3" class="styled-button-6" id="fakeBrowse"
+               onclick="HandleBrowseClick();"/>
         <input type="file" id="uploadedFile">
         <?php
         include "equalizer.php";
         ?>
     </div>
 </div>
-<div class="row">
-
-
-</div>
-
 
 
 <script src="youtubePlayer.js"></script>

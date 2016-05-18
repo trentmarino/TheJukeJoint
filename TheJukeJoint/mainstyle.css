@@ -26,24 +26,19 @@
     padding: 0px;
 }
 
-.insertSongs{
-    border: solid;
-    border-width: 5px;
-    border-color: black;
+.col.insertSongs{
+
     /*background-color: white;*/
-    background-color:rgba(0,0,0,0.5);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding-top: 2px;
-    padding-bottom:2px;
-    padding-right: -5px;
-    padding-left: -5px;
-    text-align: right;
-    display: inline-block;
+    text-align: center;
     color: white;
+    width: 100%;
+
 }
 
-.insertSongsFormList{
+.col.insertSongsFormList{
     margin-left: -25px;
+    display: inline-block;
+
 }
 
 
@@ -137,9 +132,8 @@
     text-align: center;
     height: 100%;
     /*background-color: #4f4f4f;*/
-    background-color:rgba(0,0,0,0.5);
     padding-left: 2%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
 }
 #player{
     width: 45%;
@@ -161,9 +155,13 @@
 }
 .yt
 {
-    bottom: 0;
-    top:54%;
+    bottom: -4.2em;
+
     position: absolute;
+    border-width: 2px;
+    border: cadetblue;
+    border-style: solid;
+    visibility: hidden;
 }
 .col.controls{
     background-color: white;
@@ -171,8 +169,8 @@
     height: 200px;
     margin-bottom: 1.5%;
     margin-right: 1%;
-    position: absolute; 
-    bottom: -1%;
+    position: absolute;
+    bottom: 2.1%;
     right: 0;
     font-size: 1.5em;
 
@@ -190,6 +188,7 @@
 .col.player{
     width: 70%;
     background-color: #0d0e0d;
+    height: 100%;
 
 }
 .row.container{
@@ -197,6 +196,11 @@
     height: 804px;
     margin: 10%;
     position: relative;
+    border-width: 2px;
+    border: white;
+    border-style: solid;
+    padding-bottom: 6.5%;
+    background-color:rgba(255,255,255,0.5);
 
 
 }
@@ -206,26 +210,18 @@
     width: 20%;
     position: absolute;
     left: 25%;
-    bottom: 26%;
+    bottom: 18.5%;
 
 }
-.yt
-{
-    border-width: 2px;
-    border: cadetblue;
-    border-style: solid;
-    visibility: hidden;
-}
+
 
 .col.addSong {
     height: 1.5em;
     border: solid;
     border-width: 5px;
-    border-color: black;
     /*background-color: white;*/
-    background-color:rgba(0,0,0,0.5);
+    background-color:rgba(255,255,255,0.5);
     padding-left: 2%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding-top: 2px;
     padding-bottom:2px;
     padding-right: -5px;
@@ -239,20 +235,15 @@ body{
     background-size: 100% 100%;
     background-image: url("5549239.png");
     background-repeat: no-repeat;
+    font-family: Arial;
 }
 .col.animation{
-    border: solid;
-    border-width: 5px;
-    border-color: black;
-    /*background-color: white;*/
-    background-color:rgba(0,0,0,0.5);
-    padding-left: 2%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
     padding-top: 2px;
-    padding-bottom:2px;
-    padding-right: -5px;
+    padding-bottom:4px;
     text-align: right;
     display: inline-block;
-    width: 99%;
+    width: 100%;
     color: white;
+
 }
