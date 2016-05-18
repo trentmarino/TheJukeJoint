@@ -8,17 +8,7 @@
 
 <body>
 
-<div id="wrapper">
-    <div id="fileWrapper" class="file_wrapper" >
-        <div id="info">
-        </div>  
-        <input type="text" id="youtube_link"  size="35"    placeholder="Input the Youtube link" onmouseover="this.style.borderColor='black';this.style.backgroundColor='blue'"  
-style="width: 106; height: 21"  onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'" style="border-width:1px;border-color=black">
-        <input type="button" value="Download the youtube mp3" class="styled-button-6"  id="fakeBrowse" onclick="HandleBrowseClick();"/>
-        <input type="file" id="uploadedFile">
-    </div>
 
-</div>
 
 <script>
 

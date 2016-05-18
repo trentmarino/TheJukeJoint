@@ -1,67 +1,57 @@
-/*html, body {*/
-    /*margin: 0;*/
-    /*font-family: arial, "Microsoft YaHei";*/
-    /*background-color: white;*/
-    /*color: darkblue;*/
-/*}*/
-
 #insert_songs{
-    position: absolute;
-    left: 27%;
-	top:15%;
-	transition:all 0.5s ease;
+
 }
 #play{
-    position: absolute;
-    left: 2%;
+	position: absolute;
+	left: 2%;
 	top:2%;
 	transition:all 0.5s ease;
 }
 
 #pause{
-    position: absolute;
-    left: 25%;
+	position: absolute;
+	left: 25%;
 	top:2%;
 	transition:all 0.5s ease;
 }
 
 #resume{
-    position: absolute;
-    left: 50%;
+	position: absolute;
+	left: 50%;
 	top:2%;
 	transition:all 0.5s ease;
 }
 
 #eject{
-    position: absolute;
-    left: 75%;
+	position: absolute;
+	left: 75%;
 	top:2%;
 	transition:all 0.5s ease;
 }
-#volum
 
 #insert_songs{
-    position: absolute;
-    left: 27%;
+	position: absolute;
+	left: 27%;
 	top:15%;
 	transition:all 0.5s ease;
 }
 #volume_speed{
-    position: absolute;
-    left: 60%;
+	position: absolute;
+	left: 60%;
 	top:20%;
 }
 
 #volume_range{
-    position: absolute;
-    left: 12%;
+	position: absolute;
+	left: 12%;
 	top:23%;
 }
 
 #fileWrapper{
-    position: absolute;
-    left: 15%;
-	top:97%;
+	position: absolute;
+	left: 15%;
+	top: 103%;
+	color: white;
 	transition:all 0.5s ease;
 }
 #fileWrapper:hover{
@@ -77,12 +67,12 @@ footer{
 }
 
 #canvas{
-    position: absolute;
-	left: 55%;
-	top:83%;
+	position: absolute;
+	left: 5%;
+	top:30%;
 	width: 400px;
 	height: 130px;
-    z-index: 1000;
+	z-index: 1000;
 }
 
 #canvas:hover{
@@ -92,7 +82,7 @@ footer{
 	position: absolute;
 	right:-100;
 	background-color: aqua;
-    z-index: 1000;
+	z-index: 1000;
 }
 #c{
 	position: absolute;
@@ -101,10 +91,8 @@ footer{
 
 
 .col_controls
-    {
-        background-color:transparent;
-        opacity: 0.8;
-        z-index: 0;
-    }
-
-
+{
+	background-color:transparent;
+	opacity: 0.8;
+	z-index: 0;
+}

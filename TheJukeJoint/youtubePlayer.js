@@ -73,6 +73,7 @@
             ytPlayer.id = "ytPlayer";
             ytPlayer.setAttribute('class', "yt");
             ytPlayer.style.width = "200px";
+            ytPlayer.style.visibility = "visible";
             ytFrame.appendChild(ytPlayer);
 
             onYouTubeIframeAPIReady();

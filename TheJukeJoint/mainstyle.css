@@ -19,11 +19,31 @@
 }
 .info{
     position: absolute;
-    top: 10px;
+    top: 50px;
     left: 40%;
     width: 50px;
     height: 55px;
     padding: 0px;
+}
+
+.insertSongs{
+    border: solid;
+    border-width: 5px;
+    border-color: black;
+    /*background-color: white;*/
+    background-color:rgba(0,0,0,0.5);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-top: 2px;
+    padding-bottom:2px;
+    padding-right: -5px;
+    padding-left: -5px;
+    text-align: right;
+    display: inline-block;
+    color: white;
+}
+
+.insertSongsFormList{
+    margin-left: -25px;
 }
 
 
@@ -116,7 +136,10 @@
     z-index: 10;
     text-align: center;
     height: 100%;
-    background-color: #4f4f4f;
+    /*background-color: #4f4f4f;*/
+    background-color:rgba(0,0,0,0.5);
+    padding-left: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #player{
     width: 45%;
@@ -155,7 +178,7 @@
 
 }
 .recordCanvas{
-    height: 800 px;
+    height: 800px;
     background: url("recordPlayer.png") no-repeat;
 }
 .col.trackList{
@@ -163,15 +186,19 @@
     left: -1%;
 
 }
+
 .col.player{
     width: 70%;
+    background-color: #0d0e0d;
+
 }
 .row.container{
     width: 1000px;
-    height: 810px;
+    height: 804px;
     margin: 10%;
     position: relative;
-    background-color: #0d0e0d;
+
+
 }
 
 .col.ytPlayer
@@ -180,11 +207,52 @@
     position: absolute;
     left: 25%;
     bottom: 26%;
+
 }
 .yt
 {
     border-width: 2px;
     border: cadetblue;
     border-style: solid;
+    visibility: hidden;
 }
 
+.col.addSong {
+    height: 1.5em;
+    border: solid;
+    border-width: 5px;
+    border-color: black;
+    /*background-color: white;*/
+    background-color:rgba(0,0,0,0.5);
+    padding-left: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-top: 2px;
+    padding-bottom:2px;
+    padding-right: -5px;
+    text-align: right;
+    display: inline-block;
+    width: 99%;
+}
+
+body{
+    background-position: center;
+    background-size: 100% 100%;
+    background-image: url("5549239.png");
+    background-repeat: no-repeat;
+}
+.col.animation{
+    border: solid;
+    border-width: 5px;
+    border-color: black;
+    /*background-color: white;*/
+    background-color:rgba(0,0,0,0.5);
+    padding-left: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-top: 2px;
+    padding-bottom:2px;
+    padding-right: -5px;
+    text-align: right;
+    display: inline-block;
+    width: 99%;
+    color: white;
+}
