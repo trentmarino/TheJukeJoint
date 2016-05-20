@@ -1,0 +1,10 @@
+{
+    "name": "trentmarino/thejukejoint",
+    "require": {
+       "ext-mysql": "*",
+       "php" : "*"
+   },
+   "require-dev": {
+    "heroku/heroku-buildpack-php": "*"
+  }
+}
