@@ -44,7 +44,7 @@
                 if (bitmap.rotation <= 16 || bitmap.rotation > 354) {
                     bitmap.rotation += (time/1000)/300 * $('#volume_speed').val();
                 }else{
-                    bitmap.rotation = 355;
+                    bitmap.rotation = 349;
 
                 }
             }else if (speed === "load") {

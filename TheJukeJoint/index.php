@@ -15,11 +15,9 @@
 <head>
     <title>Title</title>
     <meta charset="UTF-8">
-    <!--
+
         <link rel="stylesheet" type="text/css" href="mainstyle.css">
         <link rel="stylesheet" type="text/css" href="style/style.css">
-    -->
-
     <script></script>
     <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -32,9 +30,24 @@ include "db_connect.php";
 ?>
 <body>
 
-
+<?php
+include "search.php";
+?>
 <div class="row container">
     <div class="col insertSongs">
+        <h2>Search and play your music</h2>
+
+        <form action="search.php" method="POST">
+            <label>Song Name</label>
+            <input  type="text"  name="search">
+            <input  type="submit" name="submit" value="Search">
+        </form>
+        <?php
+        echo $output;
+        ?>
+        <?php
+        include "upload_form.php";
+        ?>
         <form id="insert_songs" action="insert_song.php" method="post">
             <ul>
                 <span>Add a new song: </span>
@@ -99,16 +112,13 @@ include "db_connect.php";
             </datalist>
         </div>
         <div id="fileWrapper" class="file_wrapper">
-            <div style="margin-top: 11%" id="info">
+            <div style="margin-top: 5%" id="info">
             </div>
         </div>
         <div id="visualizer_wrapper">
             <canvas id='canvas'></canvas>
         </div>
     </div>
-    
-</div>
-<div class="row choosesong">
     <div class="col youtubeForm">
         <input type="text" id="youtube_link" size="35" placeholder="Input the Youtube link"
                onmouseover="this.style.borderColor='black';this.style.backgroundColor='blue'"
@@ -122,6 +132,21 @@ include "db_connect.php";
         include "equalizer.php";
         ?>
     </div>
+</div>
+<div class="row choosesong">
+<!--    <div class="col youtubeForm">-->
+<!--        <input type="text" id="youtube_link" size="35" placeholder="Input the Youtube link"-->
+<!--               onmouseover="this.style.borderColor='black';this.style.backgroundColor='blue'"-->
+<!--               style="width: 106; height: 21"-->
+<!--               onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'"-->
+<!--               style="border-width:1px;border-color=black">-->
+<!--        <input type="button" value="Download the youtube mp3" class="styled-button-6" id="fakeBrowse"-->
+<!--               onclick="HandleBrowseClick();"/>-->
+<!--        <input type="file" id="uploadedFile">-->
+<!--        --><?php
+//        include "equalizer.php";
+//        ?>
+<!--    </div>-->
 </div>
 
 
