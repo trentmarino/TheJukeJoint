@@ -230,6 +230,20 @@ body{
     background-repeat: no-repeat;
     font-family: Arial;
 }
+.col.upload{
+    width: 70%;
+    margin-left: -5%;
+
+}
+.upload input{
+    width: 15%;
+}
+
+.col.search{
+    width: 30%;
+    padding-left: -20%;
+    margin-left: 5%;
+}
 .col.animation{
 
     padding-top: 2px;
@@ -242,6 +256,7 @@ body{
 }.col.youtubeForm{
      padding-bottom:10px;
      width: 100%;
+    padding-top: 20px;
      margin-top: 3%;
      margin-left: 10%;
      color: black;
@@ -269,3 +284,25 @@ body{
 
 
  }
+#status {
+    text-align: center;
+    visibility: hidden;
+    color: black;
+    width: 100%;
+    height: 100%;
+    font-size: 180%;
+    padding: 1%;
+
+}
+#status-Block{
+    text-align: left;
+    width: 90%;
+    height: 7%;
+    margin-left: 5%;
+    border-style: solid;
+    border-color: #dae0d8;
+    margin-bottom: 1%;
+    margin-top: -4%;
+    visibility: hidden;
+
+}

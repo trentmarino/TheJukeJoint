@@ -3,21 +3,20 @@
 include "db_connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST["id"];
     $song_name = $_POST["song_name"];
     $artist_name = $_POST["artist_name"];
     $duration= $_POST["duration"];
     $youtube_url=$_POST["youtube_url"];
     $video_id=$_POST["video_id"];
-    echo $id . "  ". $song_name . "  " . $artist_name . "  " . $duration . "  " . $youtube_url . "  " . $video_id;
+    echo $song_name . "  " . $artist_name . "  " . $youtube_url;
     }
 
 else{
     echo "Please enter all details";
 }
 
-$sql = "INSERT INTO jukejoint_database (id, song_name, artist_name, duration, youtube_url, video_id)
-VALUES ('$id','$song_name','$artist_name','$url')";
+$sql = "INSERT INTO jukejoint_database (song_name, artist_name, youtube_url)
+VALUES ('$song_name','$artist_name','$youtube_url')";
 
 if (!empty($conn)) {
     if ($conn->query($sql) == TRUE) {

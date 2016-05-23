@@ -13,11 +13,11 @@
     }
 </script>
 <head>
-    <title>Title</title>
+    <title>The Juke Joint</title>
     <meta charset="UTF-8">
 
-        <link rel="stylesheet" type="text/css" href="mainstyle.css">
-        <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="mainstyle.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
     <script></script>
     <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -30,17 +30,18 @@ include "db_connect.php";
 ?>
 <body>
 
-<?php
-include "search.php";
-?>
+
 <div class="row container">
-    <div class="col insertSongs">
+    <?php
+    include "search.php";
+    ?>
+
         <h2>Search and play your music</h2>
 
         <form action="search.php" method="POST">
             <label>Song Name</label>
-            <input  type="text"  name="search">
-            <input  type="submit" name="submit" value="Search">
+            <input type="text" name="search">
+            <input type="submit" name="submit" value="Search">
         </form>
         <?php
         echo $output;
@@ -48,7 +49,8 @@ include "search.php";
         <?php
         include "upload_form.php";
         ?>
-        <form id="insert_songs" action="insert_song.php" method="post">
+    <div class="col insertSongs">
+        <form id="insert_songs">
             <ul>
                 <span>Add a new song: </span>
                 <input type="text" id="song_name" name="song_name" maxlength="100" placeholder="Song Name"
@@ -66,10 +68,13 @@ include "search.php";
                        style="width: 106; height: 21"
                        onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'"
                        style="border-width:1px;border-color=black">
-                <button type="submit" id="submit" class="styled-button-5">submit</button>
+                <button type="submit" class="styled-button-5">submit</button>
 
             </ul>
         </form>
+    </div>
+    <div id="status-Block">
+        <span id="status">Test</span>
     </div>
     <div id="trackList" class="col trackList">
         <div id="infoPanel">
@@ -89,8 +94,49 @@ include "search.php";
             url.value = trackTitle[1];
             return true;
         });
+
+        //        var submit = document.getElementById("submit");
+        //        var name = document.getElementById("song_name").value;
+        //        var artist = document.getElementById("artist").value;
+        //        var url = document.getElementById("url").value;
+        //        var dataString = 'song='+name + 'artist='+artist +'url='+url;
+
+        $(function () {
+            var trackList = document.getElementById('trackList');
+
+            $('#insert_songs').on('submit', function (e) {
+
+                e.preventDefault();
+
+                $.ajax({
+                    type: 'post',
+                    url: 'insert_song.php',
+                    data: $('#insert_songs').serialize(),
+                    success: function () {
+                        alert('form was submitted');
+                        while (trackList.firstChild) {
+                            trackList.removeChild(trackList.firstChild);
+
+
+    }
+                        
+
+    }
+    });
+
+    });
+
+    });
+
+    // $('#upload_button').submit(function () {
+    // var trackTitle = youtube_url.value.split("=");
+    // console.log(trackTitle[1]);
+    // youtube_url.value = trackTitle[1];
+    // return true;
+    // });
     </script>
-    <script src="controller.js"></script>
+    <script
+    src = "controller.js" ></script>
     <div class="col ytPlayer">
         <div class="yt" id="playerFrame">
         </div>
@@ -134,19 +180,19 @@ include "search.php";
     </div>
 </div>
 <div class="row choosesong">
-<!--    <div class="col youtubeForm">-->
-<!--        <input type="text" id="youtube_link" size="35" placeholder="Input the Youtube link"-->
-<!--               onmouseover="this.style.borderColor='black';this.style.backgroundColor='blue'"-->
-<!--               style="width: 106; height: 21"-->
-<!--               onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'"-->
-<!--               style="border-width:1px;border-color=black">-->
-<!--        <input type="button" value="Download the youtube mp3" class="styled-button-6" id="fakeBrowse"-->
-<!--               onclick="HandleBrowseClick();"/>-->
-<!--        <input type="file" id="uploadedFile">-->
-<!--        --><?php
-//        include "equalizer.php";
-//        ?>
-<!--    </div>-->
+    <!--    <div class="col youtubeForm">-->
+    <!--        <input type="text" id="youtube_link" size="35" placeholder="Input the Youtube link"-->
+    <!--               onmouseover="this.style.borderColor='black';this.style.backgroundColor='blue'"-->
+    <!--               style="width: 106; height: 21"-->
+    <!--               onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'"-->
+    <!--               style="border-width:1px;border-color=black">-->
+    <!--        <input type="button" value="Download the youtube mp3" class="styled-button-6" id="fakeBrowse"-->
+    <!--               onclick="HandleBrowseClick();"/>-->
+    <!--        <input type="file" id="uploadedFile">-->
+    <!--        --><?php
+    //        include "equalizer.php";
+    //        ?>
+    <!--    </div>-->
 </div>
 
 

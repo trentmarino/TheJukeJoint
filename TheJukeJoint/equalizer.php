@@ -12,14 +12,14 @@
 
 <script>
 
-    function HandleBrowseClick(ytURL) {
+    function HandleBrowseClick() {
 
         var url = document.getElementById("youtube_link").value;
         var fileinput = document.getElementById("uploadedFile");
         var hint = "Please input the Youtube link";
 
         if (url != "")
-            window.open('http://www.youtubeinmp3.com/fetch/?video=https://www.youtube.com/watch?v=' + ytURL, '_self', false);
+            window.open('http://www.youtubeinmp3.com/fetch/?video=' + url, '_self', false);
         if (url === "") {
             document.getElementById("youtube_link").value = hint;
             return;

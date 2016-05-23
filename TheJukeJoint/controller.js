@@ -6,6 +6,8 @@
 (function (){
     var recordCanvas = document.getElementById('recordCanvas');
     var ncanvas = document.getElementById("needle");
+   
+
     ncanvas.width = 500;
     ncanvas.height = 500;
     var needleCanvas = new createjs.Stage(ncanvas);
@@ -41,10 +43,10 @@
             //console.log(" speed " + speed);
 
             if (speed === $('#volume_speed').val()) {
-                if (bitmap.rotation <= 16 || bitmap.rotation > 354) {
+                if (bitmap.rotation <= 16 || bitmap.rotation > 350) {
                     bitmap.rotation += (time/1000)/300 * $('#volume_speed').val();
                 }else{
-                    bitmap.rotation = 349;
+                    bitmap.rotation = 351;
 
                 }
             }else if (speed === "load") {
@@ -117,7 +119,11 @@
 
     spiningRecord();
 
-    drawPlayer();
+
+       
+
+
+
 
 
 })();
